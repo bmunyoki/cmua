@@ -28,21 +28,6 @@ class User extends Authenticatable
     ];
 
 
-    //A user has many cases
-    public function case(){
-        return $this->hasMany('App\Model\Case');
-    }
-
-    //A user has many case progresses
-    public function caseProgress(){
-        return $this->hasMany('App\Model\CaseProgress');
-    }
-
-    //A user has one device
-    public function device(){
-        return $this->hasOne('App\Model\Device');
-    }
-
 
     //For roles middleware
     public function roles(){
