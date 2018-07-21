@@ -1,0 +1,73 @@
+table{
+    color: #23282c !important;
+}
+.btn{
+    font-weight: 600 !important;
+}
+.add-buttons{
+    text-align: right;
+    padding: 5px;
+}
+.add-buttons button{
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 0 !important;
+    border: 0;
+    outline: 0;
+}
+
+.add-buttons button:focus, .add-buttons button:active{
+    border: none;
+    border: 0;
+    outline: none;
+    outline: 0;
+}
+
+label{
+    color: #536c79;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#map {
+    height: 400px; 
+    width: 100%;  
+}
+
+.div-scrollable{
+    height: 350px;
+    width: 100% !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.card-header{
+    font-size: 16px;
+    font-weight: 600;
+}
+#single-case-details label{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#single-case-details input[type="text"], #single-case-details textarea{
+    border: none !important;
+    padding: 0 !important;
+    font-size: 14px;
+}
+
+/* Override sweet alert cance button color to red */
+.sweet-alert button.cancel {
+    background-color: #FF0000 !important;
+}
+
+/* Data table */
+button.buttons-excel{
+    margin: 0 5px !important;
+}
+
+button.buttons-excel, button.buttons-pdf {
+    background-color: #20a8d8 !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+}

@@ -1,0 +1,26 @@
+header a:hover{
+	color: #28ABE3 !important;
+}
+.main .container-fluid {
+    padding: 0 15px !important;
+    background-color: #fff !important;
+}
+.app-body .main {
+    background-color: #fff !important;
+}
+.sidebar li.nav-item:hover, .sidebar li.nav-item:focus{
+	/*background-color: #28ABE3 !important;*/
+}
+.sidebar .nav-link:hover, .sidebar .navbar .dropdown-toggle:hover, .navbar .sidebar .dropdown-toggle:hover {
+    color: #fff;
+    background: #28ABE3 !important; 
+}
+ul.nav-dropdown-items li{
+	margin-left: 10px !important;
+}
+
+select{
+	width: 85%;
+	height: 35px;
+	background-color: inherit;
+}
