@@ -3,6 +3,54 @@ $(document).ready(function(){
     const token = $("#token").val();
     //alert('l');
 
+    //add apartment
+    $('#addApartment').click(function(e){
+        var name = $('#name').val();
+        
+        var formData = { 'name':name, '_token':token };
+        $.ajax({
+            type        : 'POST',
+            url         : '/apartments/add',
+            data        : formData,
+            success     : function(data) {
+                if (data.res == 0) {
+                    $(".response").html('<span style="font-size: 16px; color: red; font-weight: 600">'+data.message+'</span>');
+                } else {
+                    $(".response").html('<span style="font-size: 16px; color: green; font-weight: 600">'+data.message+'</span>');
+                    setTimeout(function(){
+                        location.reload();
+                    }, 2000);
+                }
+            }     
+        })
+    })
+
+    //add student
+    $('#addStudent').click(function(e){
+        var fname = $('#fname').val();
+        var lname = $('#lname').val();
+        var email = $('#email').val();
+        var gender = $('#gender').val();
+        var apartment = $('#apartment').val();
+        
+        var formData = { 'fname':fname, 'lname':lname, 'email':email, 'gender':gender, 'apartment':apartment, '_token':token };
+        $.ajax({
+            type        : 'POST',
+            url         : '/students/add',
+            data        : formData,
+            success     : function(data) {
+                if (data.res == 0) {
+                    $(".response").html('<span style="font-size: 16px; color: red; font-weight: 600">'+data.message+'</span>');
+                } else {
+                    $(".response").html('<span style="font-size: 16px; color: green; font-weight: 600">'+data.message+'</span>');
+                    setTimeout(function(){
+                        location.reload();
+                    }, 2000);
+                }
+            }     
+        })
+    })
+
 
     //Load user details for editing
     $('.users').on('click', 'a.editUser', function(){
@@ -78,35 +126,6 @@ $(document).ready(function(){
             })
         }
     });
-
-    
-
-    //Save case progress notes
-    $('#saveCaseNotes').click(function(e){
-        var caseId = $('#caseId').val();
-        var notes = $('#notes').val();
-        
-        if ($.trim(notes) == ''){
-            $(".response").html('<span style="font-size: 16px; color: red; font-weight: 600">Case notes are required</span>');
-        } else {
-            var formData = { 'caseId':caseId, 'notes':notes, '_token':token };
-            $.ajax({
-                type        : 'POST',
-                url         : '/cases/single/add-notes',
-                data        : formData,
-                success     : function(data) {
-                    if (data.res == 0) {
-                        $(".response").html('<span style="font-size: 16px; color: red; font-weight: 600">'+data.message+'</span>');
-                    } else {
-                        $(".response").html('<span style="font-size: 16px; color: green; font-weight: 600">'+data.message+'</span>');
-                        setTimeout(function(){
-                            window.location.replace(data.redirect);
-                        }, 2000);
-                    }
-                }     
-            })
-        }
-    })
 
 
     //Email validation function

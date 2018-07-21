@@ -20,18 +20,7 @@
                 </thead>
                 <tbody id="audios">
                     <?php $count = 1; ?>
-                    <input type="hidden" id="audioId" name="audioId" />
-                    @foreach($audios as $audio)
-                        <tr>
-                            <td>{{ $count }}</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>
-                                <button type="button" data-code="{{ $audio->id }}" class="btn btn-primary listen-button"> Listen </button>
-                            </td>
-                        </tr>
-                        <?php $count = $count + 1; ?>
-                    @endforeach
+                    
                 </tbody>
             </table>
         </div>

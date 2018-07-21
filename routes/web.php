@@ -11,11 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+//Load allocated rooms page
+Route::get('/', [
+    'uses' => 'RoomSelectionController@getHomePage'
+]);
 
-Route::get('/home', 'Auth\LoginController@logout');
+//Load allocated rooms page
+Route::get('/home', [
+    'uses' => 'RoomSelectionController@getHomePage'
+]);
+Route::post('/selection-details', [
+    'uses' => 'RoomSelectionController@loadStudentDetails'
+]);
 
 /*
     Login Routes
@@ -30,48 +37,41 @@ Route::post('/login', 'Auth\LoginController@processLogin');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
-/*
-    Protected routes.
-*/
-/*
-    Users
-*/
-
-//Delete a user
-Route::post('/users/delete', [
-    'uses' => 'Users\UserController@deleteUser',
+//Load allocated rooms page
+Route::get('/allocated-rooms', [
+    'uses' => 'Backend\RoomsController@getAllocatedRooms',
     'middleware' => 'roles',
     'roles' => ['Admin']
 ]);
 
-//Get user details
-Route::post('/users/details', [
-    'uses' => 'Users\UserController@getUserDetails',
+//Load apartments
+Route::get('/apartments', [
+    'uses' => 'Backend\ApartmentsController@getApartments',
     'middleware' => 'roles',
     'roles' => ['Admin']
 ]);
 
-//Update a user
-Route::post('/users/update', [
-    'uses' => 'Users\UserController@updateUser',
+//add an apartment
+Route::post('/apartments/add', [
+    'uses' => 'Backend\ApartmentsController@addApartment',
     'middleware' => 'roles',
     'roles' => ['Admin']
 ]);
 
-//Load dashboard page
-Route::get('/dashboard', [
-    'uses' => 'Dashboard\DashboardController@getDashboard',
-    'middleware' => 'roles',
-    'roles' => ['Vol', 'Admin']
-]);
-
-
-//Post a volunteer (create)
-Route::post('/users/add/volunteer', [
-    'uses' => 'Users\UserController@createVolunteer',
+//Load students
+Route::get('/students', [
+    'uses' => 'Backend\StudentsController@getStudents',
     'middleware' => 'roles',
     'roles' => ['Admin']
 ]);
+
+//add a student
+Route::post('/students/add', [
+    'uses' => 'Backend\StudentsController@addStudent',
+    'middleware' => 'roles',
+    'roles' => ['Admin']
+]);
+
 
 
 

@@ -35,9 +35,7 @@
         <a class="navbar-brand" href="{{ url('/allocated-rooms') }}">
             Room Allocation
         </a>
-        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
-            <span class="navbar-toggler- fa fa-bars"></span>
-        </button>
+       
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link nav-link" data-toggle="dropdown" href="editors-text-editors.html#" role="button" aria-haspopup="true" aria-expanded="false">

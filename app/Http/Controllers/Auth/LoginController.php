@@ -31,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/room-allocation';
+    protected $redirectTo = '/allocated-rooms';
 
     /**
      * Create a new controller instance.
@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     public function getLoginPage(){
         if(Auth::check())
-            return redirect('/dashboard');
+            return redirect('/allocated-rooms');
         
         return view('auth.login');
     }
@@ -54,7 +54,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/room-allocation');
+            return redirect()->intended('/allocated-rooms');
         }else{
             return Redirect::back()->withErrors(['Invalid email address and/or password', 'Invalid phone number and/or password' ]);
         }
