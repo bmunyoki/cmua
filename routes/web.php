@@ -23,6 +23,9 @@ Route::get('/home', [
 Route::post('/selection-details', [
     'uses' => 'RoomSelectionController@loadStudentDetails'
 ]);
+Route::post('/selection', [
+    'uses' => 'RoomSelectionController@selectRoom'
+]);
 
 /*
     Login Routes

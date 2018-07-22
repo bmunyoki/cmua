@@ -29,33 +29,24 @@
 					<meta name="_token" content="{{ csrf_token() }}" /> 
             		<input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
 					<span class="login100-form-title p-b-59">
-						Room Selection
+						Room Details
 					</span>
 
-					@if($errors->any())
-						<span style="color: red; padding-bottom: 10px">{{ $errors->first() }}</span>
+					@if(!empty($success))
+						<span style="color: green; padding-bottom: 10px">{{ $success }}</span>
 					@endif
-					<span class="errors"></span>
 
 					<div class="wrap-input100" style="border: none;">
-						<span class="label-input100">Email:</span>
-						<select name="email" id="email">
-							<option value="Select">Select Email</option>
-							@foreach($students as $student)
-								<option value="{{ $student->email }}">{{ $student->email }}</option>
-							@endforeach
-						</select>
+						<span class="label-input100">Email: {{ $email }}</span>
 					</div>
 
-					<div class="appendage" style="width: 100%">
-						
+					<div class="wrap-input100" style="border: none;">
+						<span class="label-input100">Apartment: {{ $apartment }}</span>
 					</div>
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" id="submitRoom">Submit Selection</button>
-						</div>
+					<div class="wrap-input100" style="border: none;">
+						<span class="label-input100">Room: {{ $room }}</span>
 					</div>
+
 				</form>
 			</div>
 		</div>
