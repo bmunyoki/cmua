@@ -12,7 +12,7 @@ use App\Model\Room;
 class RoomSelectionController extends Controller{
     //Get home page
     public function getHomePage(){
-    	if(Cookie::get('roomRemember') !== false){
+    	if(!empty(Cookie::get('roomRemember'))){
     		$email = Cookie::get('roomRemember');
     		$aptName = User::where('email', $email)->value('apartment');
     		$room = User::where('email', $email)->value('room');
