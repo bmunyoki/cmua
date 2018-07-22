@@ -13,16 +13,35 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Calling Number</th>
-                    <th>Date</th>
-                    <th>&nbsp;</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Apartment</th>
+                    <th>Room Number</th>
+                    <th>Room Type</th>
                 </tr>
                 </thead>
-                <tbody id="audios">
+                <tbody class="users">
                     <?php $count = 1; ?>
-                    
+                    @foreach($students as $vol)
+                        <tr>
+                            <td>{{ $count }}</td>
+                            <td>{{ $vol->fname }}</td>
+                            <td>{{ $vol->lname }}</td>
+                            <td>{{ $vol->email }}</td>
+                            <td>{{ $vol->gender }}</td>
+                            <td>{{ $vol->apartment }}</td>
+                            <td>{{ $vol->room }}</td>
+                            <td>{{ $vol->room_description }}</td>
+                        </tr>
+                        <?php $count = $count + 1; ?>
+                    @endforeach
                 </tbody>
             </table>
+            <ul class="pagination">
+                {{ $students->links('vendor.pagination.bootstrap-4') }}
+            </ul>
         </div>
     </div>
 </div>
